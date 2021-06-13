@@ -1,0 +1,7 @@
+Suggested Edits
+
+- Add More Categories
+- Add User Sign up / Sign in
+- A splash Screen
+- Responsive For Mobile Interface
+

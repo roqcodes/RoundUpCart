@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RoundUp cart</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <style>
+
+#btnhover{
+  box-shadow: rgba(0, 0, 0, 0.22) 0px 1px 30px;
+
+    transition: all .2s ease-in-out;
+}
+#btnhover:hover{
+  box-shadow: rgba(0, 0, 0, 0) 0px 1px 1px;
+    transform: translate3d(0px, 2px, 0px);
+}
+
+a:hover{
+    border-radius: 0px;
+
+}
+h3{
+    padding-top:20px;
+    padding-bottom:10px;
+    padding-left:20px;
+        }
+
+.col-md-3{
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 1px;
+    transition: all .2s ease-in-out;
+    border-radius: 30px;
+    padding-left: 0px;
+
+    }
+.col-md-3:hover{
+    box-shadow: rgba(0, 0, 0, 0.22) 0px 1px 30px;
+    transform: translate3d(0px, -2px, 0px);
+    }
+        .checked {
+  color: orange;
+}
+            .row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: white;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid white;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+
+.payout{
+  border-radius: 20px;
+}
+.card-img-top {
+    object-fit: contain;
+    /* display: block; */
+    /* max-width: 250px; */
+    width: 100%;
+    height: 250px;
+}
+    </style>
+
+
+</head>
+<body>
+  <var></var>
+{% extends 'theme.html' %}
+{% block content %}
+
+
+<div class="container">
+    <h3>Groceries</h3>
+    <div class="row" style="height:300px;">
+        {% for product in products %}
+            {% if product.category == 'Grocery'%}
+        <div class="col-md-3" style="margin-top: 5px;margin-bottom: 5px;">
+            <div class="card" style="border-radius: 30px; border: none;width: 250px;">
+                <img src="{{product.image}}" id="btnhover" class="card-img-top" alt="" style="padding: 15px ;margin-left: 5px; margin-top: 20px; border-radius: 20px;">
+                <div class="card-body">
+                    <h5 style="font-size:17px" class="card-title" >{{product.name}}</h5>
+                    <h6 class="card-text"><b>₹{{product.price}}</b></h6>
+                    <a href="sale" class="btn btn-primary" style="border-radius : 10px ; width:100%"
+                       data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                       aria-controls="offcanvasRight" id="btnhover" value = 'hello' onclick="button()">Buy Now</a>
+
+                </div>
+            </div>
+        </div>
+
+
+        {% endif %}{% endfor %}
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel"
+     style="width:50%">
+    <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">Product Details</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+{% for product in products %}
+        {% if product.name == 'Lifebuoy Total 10 Hand Sanitizer, 190 ml' %}
+        <div class="card mb-3" style="max-width:100%; height:500px ; border:0px ">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{product.image}}" alt="hell" height="200px">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body" style="border:0px">
+                        <h5 class="card-title">{{product.name}}</h5>
+                        <p class="card-text">Deal Price ₹{{product.price}}</p>
+                        <span class="heading">User Rating</span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <h5 style="font-size: 15px;padding-top: 10px;">Only {{product.stock}} Left In Stock</h5>
+                        <h5 style="font-size: 15px;padding-top: 10px;">Free Delivery within one weak</h5>
+                        <h6 style="padding-top:10px">Description : </h6>
+                        <p class="card-text"><small class="text-muted">{{product.data}}</small></p>
+                         <button onclick="" id="" style="border-radius : 10px ; width:100%" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Continue To Payment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel" style="height:75%">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title" id="offcanvasBottomLabel">Payment</h3>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body small">
+
+                    <h2></h2>
+
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <div class="row g-3 align-items-center">
+      <form method="POST">
+        {% csrf_token %}
+        <h5 style="padding-bottom: 10px;background-color: #0d6efd;border-radius: 10px;padding-left: 20px;padding-top: 5px;color: white;">Total Amount : ${{product.price}}</h5>
+        {{form.as_p}}
+        <h5>Payment Method : Pay On Delivery</h5>
+        <input type="submit" value="Continue to checkout" class="btn" style="background-color: #4cff4c;color: rgb(255, 255, 255); font-weight: 500;border-radius: 10px;">
+      </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+  </div>
+</div>
+{% endif %}{% endfor %}
+{% endblock %}
+
+
+
+<script>
+// buy =  document.getElementsById("btnhover").value
+
+// function button(){
+//   window.alert('hh')
+// }
+// alert('55');
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <title>Hello, world!</title>
+    <style>
+
+.container {
+  background-color: white;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid white;
+  border-radius: 3px;
+}
+
+
+
+    .btn-outline-success{
+    border-radius:10px;
+        display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    }
+
+  .btn-outline-success:hover{
+        color: #000;
+        font-weight:bold;
+    background-color: white ;
+        -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+
+  }
+  /* .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link{} */
+  .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover{
+  color:black
+  }
+  .slideshow img{
+  width:500px; height:270px;
+  border-radius: 20px;
+  /* margin-left: 5p
+  x; */
+}
+.card-img-top {
+    object-fit: contain;
+    /* display: block; */
+    /* max-width: 250px; */
+    width: 100%;
+    height: 250px;
+}
+
+  #slideshow {
+  margin: 40px auto;
+  position: relative;
+  width: 1100px;
+  height: 260px;
+  padding: 10px;
+
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.22) 0px 1px 30px;
+    transition: all .2s ease-in-out;
+
+}
+#slideshow:hover{
+
+    box-shadow: rgba(0, 0, 0, 0.22) 0px 1px 2px;
+    transform: translate3d(0px, -2px, 0px);
+}
+#slideshow > div {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+}
+.slideimg{
+  border-radius: 15px;
+  height: 240px;
+  width: 1080px;
+}
+
+    </style>
+</head>
+<body>
+
+    <script>
+        $("#slideshow > div:gt(0)").hide();
+    
+    setInterval(function() {
+      $('#slideshow > div:first')
+        .fadeOut(1000)
+        .next()
+        .fadeIn(1000)
+        .end()
+        .appendTo('#slideshow');    }, 5000);   
+      </script>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar_top" style= " background-color: black; display: fixed;">
+    <div class="container-fluid" style=" padding-top:0" >
+        <img src="https://firebasestorage.googleapis.com/v0/b/infinitereality-ikgxcs.appspot.com/o/rounduplogo-removebg-preview.png?alt=media&token=b2b96063-3ce1-4154-b9fc-7bc5827f6ff4"
+             width="30" height="30" >
+        <a class="navbar-brand" href="" style="padding-left : 10px">RoundUp Cart</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=""
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item" style="padding-left : 70px">
+                    <a class="nav-link" aria-current="page" href="/Mobiles/covid">Covid Essentials</a>
+                </li>
+                <li class="nav-item" style="padding-left : 80px">
+                    <a class="nav-link" href="/Mobiles/grocery">Grocery</a>
+                </li>
+                <li class="nav-item" style="padding-left : 80px">
+                    <a class="nav-link" href="">Fashion</a>
+                </li>
+                <li class="nav-item" style="padding-left : 80px">
+                    <a class="nav-link" href="">Electronics</a>
+                </li>
+                <li class="nav-item" style="padding-left : 80px">
+                    <a class="nav-link" href="">Books</a>
+                </li>
+                <!--        <li class="nav-item">-->
+                <!--          <a class="nav-link disabled" href="" tabindex="-1" aria-disabled="true">Disabled</a>-->
+                <!--        </li>-->
+            </ul>
+            <form class="d-flex" method="POST">
+                {% csrf_token %}
+                {{search.as_p}}
+                <input class="form-control me-2" class="fuzzy-search" type="search" placeholder="Search" aria-label="Search"
+                       style="border-radius:10px ; border:0px ; width :200px" ; height="20px" id="search" >
+                <button class="btn btn-outline-success" type="submit" style="border:0px ;" onclick="myFunction()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+<h3 style="margin-left:130px ">Featured</h3>
+<div id="slideshow">
+  <div>
+    <a class="slideimg" href="https://youtube.com" target="_blank">
+      <img class="slideimg" src="https://i.pinimg.com/originals/5e/73/94/5e73945be186420f276a6ed3fe4ee190.png">
+    </a>
+    
+    
+  </div>
+  <div>
+    <a class="slideimg" href="https://google.com" target="_blank">
+      <img class="slideimg" src="https://wallup.net/wp-content/uploads/2016/01/209658-mask-white-simple-quote-V_for_Vendetta-748x421.jpg">
+    </a>
+  </div>
+</div>
+{% block content %}
+{% endblock %}
+
+<!-- Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<!--
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+-->
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/dist/semantic.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        document.getElementById('navbar_top').classList.add('fixed-top');
+        // add padding top to show content behind navbar
+        navbar_height = document.querySelector('.navbar').offsetHeight;
+        document.body.style.paddingTop = navbar_height + 'px';
+      } else {
+        document.getElementById('navbar_top').classList.remove('fixed-top');
+         // remove padding top from body
+        document.body.style.paddingTop = '0';
+      } 
+  });
+}); 
+</script>
+<script>
+    var monkeyList = new List('test-list', { 
+      valueNames: ['name']
+    });
+    </script>
+</body>
+
+</html>
