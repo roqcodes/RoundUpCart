@@ -24,7 +24,7 @@ Mobiles/covid
 	Mobiles/grocery
 -> /admin
 
-## Check AuthersNote.txt For Suggested Edits
+## Check [Suggestions.txt](Suggestions.txt) For Suggested Edits
 #### Muhammed Ronak B S
 
 
