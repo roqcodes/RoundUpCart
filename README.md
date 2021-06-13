@@ -1,9 +1,9 @@
 # Round Up Cart - Basic ecommerce website
 
 ## dependencies
--> Python 3.9
--> Django
--> sQlite Browser
+- Python 3.9
+- Django
+- sQlite Browser
 
 ## Contributing
 
@@ -19,10 +19,10 @@ Copyright 2021 Muhammed Ronak BS -Finite X Reality  Licensed Under MIT License
 
 -----------------------
 ## Project Paths
--> /Mobiles
+- /Mobiles
 Mobiles/covid
 	Mobiles/grocery
--> /admin
+- /admin
 
 ## Check AuthersNote.txt For Suggested Edits
 #### Muhammed Ronak B S
