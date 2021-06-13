@@ -29,5 +29,5 @@ Mobiles/covid
 
 
 ## For Further Details
-##### Visit [Website](welcome.thefinitex.rf.gd) or Dm Right Here [Instagram](instagram.com/_roq.__) | [Linkedin](https://www.linkedin.com/in/muhammed-ronaq-connect/)
+##### Visit [Website](http//:welcome.thefinitex.rf.gd) or Dm Right Here [Instagram](https://instagram.com/_roq.__) | [Linkedin](https://www.linkedin.com/in/muhammed-ronaq-connect/)
 
