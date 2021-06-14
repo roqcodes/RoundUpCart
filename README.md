@@ -25,8 +25,6 @@ Mobiles/covid
 - /admin
 
 ## Check [Suggestions.txt](Suggestions.txt) For Suggested Edits
-#### Muhammed Ronak B S
-
 
 ## For Further Details
 ##### Visit [Website](welcome.thefinitex.rf.gd) or Dm Right Here [Instagram](instagram.com/_roq.__) | [Linkedin](https://www.linkedin.com/in/muhammed-ronaq-connect/)
